@@ -1,3 +1,23 @@
+/** ---------------------------------------------------------------------------------------------
+ * Homework:          Assignment Rolodex Project.
+ * Name:              James Wood
+ * Class:             intro to Java
+ * Class:             90.268-061 - C++ Programming
+ * Date:              07/26/2014
+ * File Name:         main.cpp
+ *
+ * Discription:       This program emlates a rolodex card organizer
+ *                    Card Class hold the individual card infomation
+ *                    Rolodex Class holds a STL list<Card> that organizes the individual cards.
+ *
+ *
+ * Referances:        (1) C++ How To Program eighth edition.
+ *                    By: Paul Deitel, Harvey Deitel
+ *                    Deitel publishing
+ *                    ISBN-13: 978-0-13-266236-9
+ *
+ * ----------------------------------------------------------------------------------------------*/
+
 /**
  The main() function defines and loads the Rolodex object with the starting data (by adding a 
  series of Cards to it), and then accepts interactive requests that act on the Rolodex. For each 
@@ -41,9 +61,14 @@
 
 using namespace std;
 
-void loadBaseRolodexData( Rolodex );
+void loadBaseRolodexData( Rolodex & );
 bool controlPanel( Rolodex );
-void addCard( Rolodex );
+void addCard( Rolodex & );
+void listCards( Rolodex );
+void viewCard( Rolodex );
+void flipCard( Rolodex *);
+void findCard( Rolodex );
+void removeCard( Rolodex &);
 
 // void testCard();
 // template < typename T > void printList( const list< T > & listRef);
@@ -51,33 +76,47 @@ void addCard( Rolodex );
 
 int main(int argc, const char * argv[])
 {
-    Rolodex(theRolodex);
     
-    //bool runAgain = true;
+    Rolodex theRolodex;
+    
+    bool runAgain = true;
     
     cout << "Welcome to Rolodex " << endl << "------------------\n" << endl;
+    
+    cout << "\n\n\t\tLoading primary Database\n" << endl;
     
     loadBaseRolodexData( theRolodex );
     
     
-    controlPanel( theRolodex );
-    controlPanel( theRolodex );
-    controlPanel( theRolodex );
-    
-    /*
     while (runAgain)
     {
-        runAgain = false;
         runAgain = controlPanel( theRolodex );
-        
     }
-      */
     
-
+    
+    /*
+    
+    cout << controlPanel( theRolodex ) << endl;
+    
+    cout << controlPanel( theRolodex ) << endl;
+    
+    cout << controlPanel( theRolodex ) << endl;
+    
+    cout << controlPanel( theRolodex ) << endl;
+    
+    cout << controlPanel( theRolodex ) << endl;
+    
+    cout << controlPanel( theRolodex ) << endl;
+    
+    cout << controlPanel( theRolodex ) << endl;
+    */
+    
+    
+    
     return 0;
 }
 
-void loadBaseRolodexData( Rolodex rolodexToUse)
+void loadBaseRolodexData( Rolodex & rolodexToUse)
 {
     Card *theCard1 = new Card("Tony", "Hanson");
     theCard1->setFullAddress("12 E. st. NY, NY 33333");
@@ -129,16 +168,16 @@ void loadBaseRolodexData( Rolodex rolodexToUse)
     theCard10->setPhoneNumber("555-9981");
     theCard10->setOccupation("Sales");
     
-    rolodexToUse.Rolodex::add( *theCard1, rolodexToUse );
-    rolodexToUse.Rolodex::add( *theCard2, rolodexToUse  );
-    rolodexToUse.Rolodex::add( *theCard3, rolodexToUse  );
-    rolodexToUse.Rolodex::add( *theCard4, rolodexToUse  );
-    rolodexToUse.Rolodex::add( *theCard5, rolodexToUse  );
-    rolodexToUse.Rolodex::add( *theCard6, rolodexToUse  );
-    rolodexToUse.Rolodex::add( *theCard7, rolodexToUse  );
-    rolodexToUse.Rolodex::add( *theCard8, rolodexToUse  );
-    rolodexToUse.Rolodex::add( *theCard9, rolodexToUse );
-    rolodexToUse.Rolodex::add( *theCard10, rolodexToUse  );
+    rolodexToUse.Rolodex::add( *theCard1 );
+    rolodexToUse.Rolodex::add( *theCard2 );
+    rolodexToUse.Rolodex::add( *theCard3 );
+    rolodexToUse.Rolodex::add( *theCard4 );
+    rolodexToUse.Rolodex::add( *theCard5 );
+    rolodexToUse.Rolodex::add( *theCard6 );
+    rolodexToUse.Rolodex::add( *theCard7 );
+    rolodexToUse.Rolodex::add( *theCard8 );
+    rolodexToUse.Rolodex::add( *theCard9 );
+    rolodexToUse.Rolodex::add( *theCard10 );
     
 }
 
@@ -146,10 +185,16 @@ bool controlPanel( Rolodex theRolodex)
 {
     int nextTask;
     
+    bool loopAgain = true;
     
     cout << "please pick a function: " << endl <<
-    "add  = 1 " << endl <<
-    "exit = 7 " << endl;
+    "add card = 1 " << endl <<
+    "list full Rolodex = 2 " << endl <<
+    "view current card = 3 " << endl <<
+    "flip card = 4 " << endl <<
+    "find a card = 5 " << endl <<
+    "remove current card = 6 " << endl <<
+    "exit program = 7 " << endl;
     
     cin >> nextTask;
     
@@ -157,99 +202,123 @@ bool controlPanel( Rolodex theRolodex)
     {
         case 1:
             addCard( theRolodex );
-            return true;
+            loopAgain = true;
+            break;
+            
+        case 2:
+            listCards( theRolodex );
+            loopAgain = true;
+            break;
+            
+        case 3:
+            viewCard( theRolodex );
+            loopAgain = true;
+            break;
+        
+        case 4:
+            flipCard( &theRolodex );
+            loopAgain = true;
+            break;
+            
+        case 5:
+            findCard( theRolodex );
+            loopAgain = true;
+            break;
+            
+        case 6:
+            removeCard( theRolodex );
+            loopAgain = true;
             break;
             
         case 7:
-            return false;
+            loopAgain = false;
             break;
 
             
         default:
-            return false;
+            loopAgain = false;
             break;
             
     }
+    return loopAgain;
 }
 
-void addCard( Rolodex rolodexToUse )
+void addCard( Rolodex & rolodexToUse )
 {
     string tempFirst, tempLast, city, state, zip, occupation, phoneNum, address;
     
-    bool addAnother = true;
     
-    while (addAnother)
-    {
-        cout << " Enter first name" << endl;
-        cin >> tempFirst;
-        cout << "Enter last name" << endl;
-        cin >> tempLast;
+    cout << " Enter first name" << endl;
+    cin >> tempFirst;
+    cout << "Enter last name" << endl;
+    cin >> tempLast;
+    
+    Card *theCard = new Card(tempFirst, tempLast);
+    
         
-        Card *theCard = new Card(tempFirst, tempLast);
+    
+    cout << " Enter occupation" << endl;
+    cin >> occupation;
+    
+    theCard->setOccupation(occupation);
         
+    cout << " Enter phone number" << endl;
+    cin >> phoneNum;
         
+    theCard->setPhoneNumber(phoneNum);
+    
+    cout << " Enter address :" << endl;
+    cin >> address;
         
-        cout << " Enter occupation" << endl;
-        cin >> occupation;
-        
-        theCard->setOccupation(occupation);
-        
-        cout << " Enter phone number" << endl;
-        cin >> phoneNum;
-        
-        theCard->setPhoneNumber(phoneNum);
-        
-        cout << " Enter address :" << endl;
-        cin >> address;
-        
-        theCard->setFullAddress(address);
+    theCard->setFullAddress(address);
         
         
-        rolodexToUse.Rolodex::add( *theCard, rolodexToUse  );
-        /*
-         string address;
-         cout << "Enter Address " << endl;
-         cin >> address;
-         */
-        
-        cout << "Do you wish to add another card? enter 1 for yes and other for no.  " << endl;
-        int goAgain;
-        cin >> goAgain;
-        
-        if (goAgain != 1 )
-            addAnother = false;
-        
-        
-    }
+    rolodexToUse.Rolodex::add( *theCard );
     
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-template < typename T > void printList( const list< T > & listRef)
+void listCards( Rolodex thisRolodex )
 {
-    if ( listRef.empty() )
+    thisRolodex.Rolodex::show();
+}
+
+void viewCard( Rolodex thisRolodex )
+{
+    thisRolodex.Rolodex::getCurrentCard();
+}
+
+void flipCard( Rolodex *thisRolodex )
+{
+    thisRolodex->Rolodex::flip( thisRolodex );
+}
+
+void findCard( Rolodex thisRolodex )
+{
+    string first, last;
+    cout << "Please enter Search name:";
+    
+    cin >> first >> last ;
+    cout << endl;
+
+    bool found = thisRolodex.searchList(first, last);
+    if (found)
     {
-        cout << "List is empty.";
+        cout << "Found card " << endl;
     }
     else
-    {
-        ostream_iterator< T > output( cout, " ");
-        //copy( listRef.begin(), listRef.end(), output );
-    }
+        cout << "Could not find the card";
 }
-*/
+
+void removeCard( Rolodex &thisRolodex)
+{
+    cout << "Are you sure you wish to remove this card? (yes or no) " << endl;
+    thisRolodex.getCurrentCard();
+    
+    string doIt;
+    cin >> doIt;
+    if (doIt == "yes" )
+        thisRolodex.remove(thisRolodex);
+    
+}
+
+

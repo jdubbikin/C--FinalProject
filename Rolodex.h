@@ -1,3 +1,24 @@
+
+/** ---------------------------------------------------------------------------------------------
+ * Homework:          Assignment Rolodex Project.
+ * Name:              James Wood
+ * Class:             intro to Java
+ * Class:             90.268-061 - C++ Programming
+ * Date:              07/26/2014
+ * File Name:         Rolodex.h
+ *
+ * Discription:       This program emlates a rolodex card organizer
+ *                    Card Class hold the individual card infomation
+ *                    Rolodex Class holds a STL list<Card> that organizes the individual cards.
+ *
+ *
+ * Referances:        (1) C++ How To Program eighth edition.
+ *                    By: Paul Deitel, Harvey Deitel
+ *                    Deitel publishing
+ *                    ISBN-13: 978-0-13-266236-9
+ *
+ * ----------------------------------------------------------------------------------------------*/
+
 /**
  The Rolodex class manages a collection of Card objects. It must have a data member that is an STL 
  container class to hold the set of rolodex Card objects (i.e. not a C/C++ array, but an STL Vector,
@@ -73,20 +94,20 @@ using namespace std;
 class Rolodex
 {
 public:
-    Rolodex()
-    {
-        //list<Card> m_rolodex;
-        
-        m_CurrentPos = m_rolodexList.begin();
-    };
+    Rolodex(){};
     ~Rolodex(){};
-    void add( Card, Rolodex );
+    void add( Card );
+    Card getCurrentCard();
+    void remove( Rolodex &);
+    void show();
+    void flip( Rolodex * );
+    bool searchList( const string &, const string & );
     
     
     
 private:
+    struct m_sort_cards;
     list< Card > m_rolodexList;
-    list<Card>::iterator m_iteratir;
     list < Card > :: iterator m_CurrentPos;
     
     

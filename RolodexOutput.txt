@@ -1,0 +1,441 @@
+Welcome to Rolodex 
+------------------
+
+
+
+		Loading primary Database
+
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+2
+Adolf Coors
+Beer Manufacturer
+Boston MA
+555-2337
+
+Tony Hanson
+Writer
+12 E. st. NY, NY 33333
+555-9999
+
+Alonzo Heard
+Mechanic
+123 Anyplace Ave, Malden. MA
+555-5678
+
+Alen Lupine
+Vet
+1 Begelow Av, Lawrence MA
+555-7654
+
+Fred Milton
+Sales
+12 Freadom Way, Nashua, NH
+555-9981
+
+Seymore Papert
+Lego Professor
+MIT
+555-1111
+
+Jewel Proverb
+Landscaper
+34 Washington St, Walthham MA
+555-3333
+
+Paul Revere
+Radical Revolutionary
+45 Commonwealth Av Boston MA
+555_1776
+
+Jen Reyes
+Graphic Artist
+325 Oak Rd, Willmington MA
+555-4950
+
+Jon Smyth
+Computer Hardware
+CMU Computer Servises, Pittsberg, PA
+555-1324
+
+
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+5
+Please enter Search name:Alonzo Heard
+
+Alonzo Heard
+Mechanic
+123 Anyplace Ave, Malden. MA
+555-5678
+
+
+Found card 
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+3
+Adolf Coors
+Beer Manufacturer
+Boston MA
+555-2337
+
+
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+4
+Tony Hanson
+Writer
+12 E. st. NY, NY 33333
+555-9999
+
+
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+5
+Please enter Search name:Jon Smyth
+
+Jon Smyth
+Computer Hardware
+CMU Computer Servises, Pittsberg, PA
+555-1324
+
+
+Found card 
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+3
+Adolf Coors
+Beer Manufacturer
+Boston MA
+555-2337
+
+
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+6
+Are you sure you wish to remove this card? (yes or no) 
+Adolf Coors
+Beer Manufacturer
+Boston MA
+555-2337
+
+
+yes
+Tony Hanson
+Writer
+12 E. st. NY, NY 33333
+555-9999
+
+
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+3
+Adolf Coors
+Beer Manufacturer
+Boston MA
+555-2337
+
+
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+1
+ Enter first name
+Matthew
+Enter last name
+Williams
+ Enter occupation
+Teacher
+ Enter phone number
+555-9330
+ Enter address :
+69 Mainst Acton MA
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+Program ended with exit code: 0
+
+-------------Program exited at this point-----------
+--------restarting and continue from net step-------
+
+
+Welcome to Rolodex 
+------------------
+
+
+
+		Loading primary Database
+
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+3
+Adolf Coors
+Beer Manufacturer
+Boston MA
+555-2337
+
+
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+4
+Tony Hanson
+Writer
+12 E. st. NY, NY 33333
+555-9999
+
+
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+6
+Are you sure you wish to remove this card? (yes or no) 
+Adolf Coors
+Beer Manufacturer
+Boston MA
+555-2337
+
+
+yes
+Tony Hanson
+Writer
+12 E. st. NY, NY 33333
+555-9999
+
+
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+3
+Adolf Coors
+Beer Manufacturer
+Boston MA
+555-2337
+
+
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+5
+Please enter Search name:Jewel Proverb
+
+Jewel Proverb
+Landscaper
+34 Washington St, Walthham MA
+555-3333
+
+
+Found card 
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+3
+Adolf Coors
+Beer Manufacturer
+Boston MA
+555-2337
+
+
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+6
+Are you sure you wish to remove this card? (yes or no) 
+Adolf Coors
+Beer Manufacturer
+Boston MA
+555-2337
+
+
+yes
+Tony Hanson
+Writer
+12 E. st. NY, NY 33333
+555-9999
+
+
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+3
+Adolf Coors
+Beer Manufacturer
+Boston MA
+555-2337
+
+
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+2
+Adolf Coors
+Beer Manufacturer
+Boston MA
+555-2337
+
+Tony Hanson
+Writer
+12 E. st. NY, NY 33333
+555-9999
+
+Alonzo Heard
+Mechanic
+123 Anyplace Ave, Malden. MA
+555-5678
+
+Alen Lupine
+Vet
+1 Begelow Av, Lawrence MA
+555-7654
+
+Fred Milton
+Sales
+12 Freadom Way, Nashua, NH
+555-9981
+
+Seymore Papert
+Lego Professor
+MIT
+555-1111
+
+Jewel Proverb
+Landscaper
+34 Washington St, Walthham MA
+555-3333
+
+Paul Revere
+Radical Revolutionary
+45 Commonwealth Av Boston MA
+555_1776
+
+Jen Reyes
+Graphic Artist
+325 Oak Rd, Willmington MA
+555-4950
+
+Jon Smyth
+Computer Hardware
+CMU Computer Servises, Pittsberg, PA
+555-1324
+
+
+please pick a function: 
+add card = 1 
+list full Rolodex = 2 
+view current card = 3 
+flip card = 4 
+find a card = 5 
+remove current card = 6 
+exit program = 7 
+7
+Program ended with exit code: 0
+
+
+To get to the end of the runtime, I had to skip 
+adding cards, as that caused the program to quite. 
+the current card is updating in this, however is 
+destroyed as this is distructed and is never coppied to m_currentCard

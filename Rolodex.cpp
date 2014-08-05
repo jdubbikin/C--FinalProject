@@ -1,34 +1,24 @@
-//
-//  Rollerdex.cpp
-//  JamesWood_Project_rolodex
-//
-//  Created by James Wood 柯杰。 on 7/11/14.
-//  Copyright (c) 2014 James Wood 柯杰。. All rights reserved.
-//
+/** ---------------------------------------------------------------------------------------------
+ * Homework:          Assignment Rolodex Project.
+ * Name:              James Wood
+ * Class:             intro to Java
+ * Class:             90.268-061 - C++ Programming
+ * Date:              07/26/2014
+ * File Name:         Rolodex.cpp
+ *
+ * Discription:       This program emlates a rolodex card organizer
+ *                    Card Class hold the individual card infomation
+ *                    Rolodex Class holds a STL list<Card> that organizes the individual cards.
+ *
+ *
+ * Referances:        (1) C++ How To Program eighth edition.
+ *                    By: Paul Deitel, Harvey Deitel
+ *                    Deitel publishing
+ *                    ISBN-13: 978-0-13-266236-9
+ *
+ * ----------------------------------------------------------------------------------------------*/
 
 #include "Rolodex.h"
-
-/*
-Rolodex::Rolodex()
-{
-    m_listItem = new Rolodex;
-    
-    
-}
-*/
-/*
-template < class TYPE >
-Rolodex< TYPE >::Rolodex()
-{
-    list< TYPE > m_rolodex;
-}
- 
-template < class TYPE >
-Rolodex< TYPE >::~Rolodex()
-{}
-*/
-
-
 
 /**
  add(Card& card) takes a Card object as a parameter (by ref is more efficient), adds it to the STL 
@@ -37,17 +27,23 @@ Rolodex< TYPE >::~Rolodex()
  iterator member to point at the Card just added..
  *
  */
-
-void Rolodex::add( Card ref, Rolodex rolodexToUse )
-//void Rolodex < TYPE > ::add( string first, string last)
+struct Rolodex::m_sort_cards
 {
-    list<Card>::iterator iter = rolodexToUse.m_rolodexList.begin();
+    bool operator()( Card& a, Card& b )
+    {
+        return ( a.getLastName() < b.getLastName() );
+    }
+};
+
+void Rolodex::add( Card ref )
+{
+    list<Card>::iterator iter = m_rolodexList.begin();
     
-    rolodexToUse.m_rolodexList.insert(iter, ref);
+    m_rolodexList.insert(iter, ref);
     
-    //rolodexToUse.m_rolodex = m_rolodex;
+    m_rolodexList.sort( m_sort_cards() );
     
-    // m_rolodex.sort();
+    m_CurrentPos = iter;
     
 }
 
@@ -57,6 +53,15 @@ void Rolodex::add( Card ref, Rolodex rolodexToUse )
  card should be set to the first card in the container (i.e. wraps around).
  *
  */
+void Rolodex::remove(Rolodex & rolodexToUse)
+{
+    list<Card>::iterator temp = m_CurrentPos;
+    ++m_CurrentPos;
+    ostringstream os;
+    getCurrentCard();
+    
+    
+}
 
 
 
@@ -65,17 +70,38 @@ void Rolodex::add( Card ref, Rolodex rolodexToUse )
  *
  */
 
-/*
-void Rolodex::getCurrentCard()
-{}
-*/
 
+Card Rolodex::getCurrentCard()
+{
+    ostringstream os;
+    
+    m_CurrentPos->showCard(os);
+    
+    cout << os.str() << endl;
+    
+    return *m_CurrentPos;
+}
 
 /**
  flip() updates the current card position to the next Card in the Rolodex's STL container, and 
  returns that Card. If at the last card in the container, it wraps around to the first card.
  *
  */
+void Rolodex::flip( Rolodex *rolodexToUse )
+{
+    
+    
+    if (rolodexToUse->m_CurrentPos == m_rolodexList.end())
+    {
+        rolodexToUse->m_CurrentPos = m_rolodexList.begin();
+    }
+    
+    rolodexToUse->m_CurrentPos++;
+    
+    
+    rolodexToUse->getCurrentCard();
+}
+
 
 
 
@@ -86,7 +112,45 @@ void Rolodex::getCurrentCard()
  the current position (e.g. if "H" is entered as the last name, the first card with a last name 
  following "H" in alphabetical order is displayed) and it returns true.  If there is no following 
  card,  the current position remains unchanged and false is returned.
+ 
+ it = find_first_of (haystack.begin(), haystack.end(),
+ needle, needle+3, comp_case_insensitive);
+ 
+ if (it!=haystack.end())
+ std::cout << "The first match is: " << *it << '\n';
+ 
  */
+bool Rolodex::searchList(const string& firstname, const string& lastname)
+{
+    
+    list<Card>::iterator itr = m_rolodexList.begin();
+    bool found = false;
+    
+    
+    while (!found)
+    {
+        if (itr->getFirstName() == firstname && itr->getLastName() == lastname)
+        {
+            m_CurrentPos = itr;
+            found = true;
+            getCurrentCard();
+            
+            return true;
+        }
+        else
+        {
+            itr++;
+            
+            if (itr == m_rolodexList.end() && found == false)
+            {
+                m_CurrentPos = m_rolodexList.end();
+                return true;
+                found = true;
+            }
+        }
+    }
+    return false;
+}
 
 
 
@@ -99,3 +163,13 @@ void Rolodex::getCurrentCard()
  *
  *
  */
+void Rolodex::show()
+{
+    ostringstream os;
+    for (list<Card>::iterator itr = m_rolodexList.begin(); itr != m_rolodexList.end(); ++itr)
+    {
+        itr->showCard(os);
+        
+    }
+    cout << os.str() << endl;
+}
